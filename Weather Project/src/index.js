@@ -1,0 +1,81 @@
+let now = new Date();
+
+let currentDate = document.querySelector("#weather-date");
+let date = now.getDate();
+let days = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+];
+let day = days[now.getDay()];
+
+let months = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
+let month = months[now.getMonth()];
+currentDate.innerHTML = `${day}, ${month} ${date}`;
+
+let hours = ("0" + now.getHours()).slice(-2);
+let minutes = ("0" + now.getMinutes()).slice(-2);
+let currentTime = document.querySelector("#weather-time");
+currentTime.innerHTML = `${hours}:${minutes}`;
+
+function displayWeatherCondition(response) {
+  document.querySelector("#citySearched").innerHTML = response.data.name;
+  document.querySelector("#temperature").innerHTML = Math.round(
+    response.data.main.temp
+  );
+  document.querySelector("#humidity").innerHTML = response.data.main.humidity;
+  document.querySelector("#wind").innerHTML = Math.round(
+    response.data.wind.speed
+  );
+  document.querySelector("#description").innerHTML =
+    response.data.weather[0].main;
+}
+
+function displayCity(event) {
+  event.preventDefault();
+  let city = document.querySelector("#search-city-input").value;
+  searchCity(city);
+}
+
+function searchCity(city) {
+  let apiKey = "1b92048b04f0294bf4e7e4bd33378013";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
+  axios.get(apiUrl).then(displayWeatherCondition);
+}
+
+function searchLocation(position) {
+  let apiKey = "1b92048b04f0294bf4e7e4bd33378013";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
+
+  axios.get(apiUrl).then(displayWeatherCondition);
+}
+
+function getCurrentLocation(event) {
+  event.preventDefault();
+  navigator.geolocation.getCurrentPosition(searchLocation);
+}
+
+let form = document.querySelector("#city-form");
+form.addEventListener("submit", displayCity);
+
+let currentLocationButton = document.querySelector("#current-location-button");
+currentLocationButton.addEventListener("click", getCurrentLocation);
+
+searchCity("Porto");
