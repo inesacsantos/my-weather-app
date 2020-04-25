@@ -24,134 +24,136 @@
   </head>
   <body>
     <div class="container">
-      <div class="weather-app">
-        <form class="city-form" id="city-form">
+      <div class="weather-app-wrapper">
+        <div class="weather-app">
+          <form class="city-form" id="city-form">
+            <div class="row">
+              <div class="col-6">
+                <input
+                  type="text"
+                  placeholder="Enter a city"
+                  autocomplete="off"
+                  autofocus="on"
+                  id="search-city-input"
+                />
+              </div>
+              <div class="col-3">
+                <input
+                  type="submit"
+                  value="Search"
+                  class="form-control btn btn-primary shadow-sm w-100"
+                />
+              </div>
+              <div class="col-3">
+                <button
+                  class="btn btn-success w-100"
+                  id="current-location-button"
+                >
+                  Current
+                </button>
+              </div>
+            </div>
+          </form>
           <div class="row">
             <div class="col-6">
-              <input
-                type="text"
-                placeholder="Enter a city"
-                autocomplete="off"
-                autofocus="on"
-                id="search-city-input"
-              />
+              <h3 id="weather-date"></h3>
+              <h3 id="weather-time"></h3>
             </div>
-            <div class="col-3">
-              <input
-                type="submit"
-                value="Search"
-                class="form-control btn btn-primary shadow-sm w-100"
-              />
-            </div>
-            <div class="col-3">
-              <button
-                class="btn btn-success w-100"
-                id="current-location-button"
-              >
-                Current
-              </button>
+            <div class="col-6">
+              <h2 class="city" id="citySearched"></h2>
             </div>
           </div>
-        </form>
-        <div class="row">
-          <div class="col-6">
-            <h3 id="weather-date"></h3>
-            <h3 id="weather-time"></h3>
+          <div class="row">
+            <div class="col-6">
+              <span class="temperature" id="temperature">19</span>
+              <span class="units">
+                <a href="#" id="celsius-link">°C</a> |
+                <a href="#" id="fahrenheit-link">°F</a> |
+              </span>
+            </div>
+            <div class="col-6">
+              <ul>
+                <li>Humidity: <span id="humidity">77</span>%</li>
+                <li>Wind: <span id="wind">8</span>km/h</li>
+              </ul>
+            </div>
           </div>
-          <div class="col-6">
-            <h2 class="city" id="citySearched"></h2>
+          <div class="row">
+            <div class="col-6">
+              <h1 id="description">
+                Storm
+              </h1>
+            </div>
+            <div class="col-6">
+              <h1 class="weather-icon">
+                <img src="src/images/weather_icon.png" alt="bigstormimage" />
+              </h1>
+            </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="col-6">
-            <span class="temperature" id="temperature">19</span>
-            <span class="units">
-              <a href="#" id="celsius-link">°C</a> |
-              <a href="#" id="fahrenheit-link">°F</a> |
-            </span>
-          </div>
-          <div class="col-6">
-            <ul>
-              <li>Humidity: <span id="humidity">77</span>%</li>
-              <li>Wind: <span id="wind">8</span>km/h</li>
-            </ul>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-6">
-            <h1 id="description">
-              Storm
-            </h1>
-          </div>
-          <div class="col-6">
-            <h1 class="weather-icon">
-              <img src="src/images/weather_icon.png" alt="bigstormimage" />
-            </h1>
-          </div>
-        </div>
-        <br />
-        <br />
-        <div class="row">
-          <div class="col-sm">
-            Mon
-            <div class="row">
-              <div class="col-sm">
-                <i class="fas fa-cloud-rain"></i>
-                <div class="row">
-                  <div class="col-6">
-                    12 º
+          <br />
+          <br />
+          <div class="row">
+            <div class="col-sm">
+              Mon
+              <div class="row">
+                <div class="col-sm">
+                  <i class="fas fa-cloud-rain"></i>
+                  <div class="row">
+                    <div class="col-6">
+                      12 º
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="col-sm">
-            Tue
-            <div class="row">
-              <div class="col-sm">
-                <i class="fas fa-cloud-rain"></i>
-                <div class="row">
-                  <div class="col-sm">
-                    11 º
+            <div class="col-sm">
+              Tue
+              <div class="row">
+                <div class="col-sm">
+                  <i class="fas fa-cloud-rain"></i>
+                  <div class="row">
+                    <div class="col-sm">
+                      11 º
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="col-sm">
-            Wed
-            <div class="row">
-              <div class="col-sm">
-                <i class="fas fa-cloud"></i>
-                <div class="row">
-                  <div class="col-sm">
-                    13 º
+            <div class="col-sm">
+              Wed
+              <div class="row">
+                <div class="col-sm">
+                  <i class="fas fa-cloud"></i>
+                  <div class="row">
+                    <div class="col-sm">
+                      13 º
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="col-sm">
-            Thu
-            <div class="row">
-              <div class="col-sm">
-                <i class="fas fa-cloud-sun"></i>
-                <div class="row">
-                  <div class="col-sm">
-                    10 º
+            <div class="col-sm">
+              Thu
+              <div class="row">
+                <div class="col-sm">
+                  <i class="fas fa-cloud-sun"></i>
+                  <div class="row">
+                    <div class="col-sm">
+                      10 º
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="col-sm">
-            Fri
-            <div class="row">
-              <div class="col-sm">
-                <i class="fas fa-sun"></i>
-                <div class="row">
-                  <div class="col-sm">
-                    14 º
+            <div class="col-sm">
+              Fri
+              <div class="row">
+                <div class="col-sm">
+                  <i class="fas fa-sun"></i>
+                  <div class="row">
+                    <div class="col-sm">
+                      14 º
+                    </div>
                   </div>
                 </div>
               </div>
