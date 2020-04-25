@@ -3,12 +3,14 @@ body {
   font-family: "Noto Sans TC", sans-serif;
 }
 
+.weather-app-wrapper {
+  max-width: 600px;
+  margin: 30px auto;
+}
 .weather-app {
   border: 2px solid #ffffff;
-  padding: 15px;
-  margin: 30px auto;
+  padding: 20px;
   border-radius: 10px;
-  max-width: 600px;
 }
 
 img {
