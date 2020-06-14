@@ -33,3 +33,6 @@ ul {
 li {
   list-style: none;
 }
+.temperature strong {
+  color: blue;
+}
