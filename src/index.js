@@ -34,6 +34,7 @@ let hours = ("0" + now.getHours()).slice(-2);
 let minutes = ("0" + now.getMinutes()).slice(-2);
 let currentTime = document.querySelector("#weather-time");
 currentTime.innerHTML = `${hours}:${minutes}`;
+let icon = document.querySelector("#icon");
 
 function displayWeatherCondition(response) {
   document.querySelector("#citySearched").innerHTML = response.data.name;
@@ -45,7 +46,12 @@ function displayWeatherCondition(response) {
     response.data.wind.speed
   );
   document.querySelector("#description").innerHTML =
-    response.data.weather[0].main;
+    response.data.weather[0].description;
+  icon.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  icon.setAttribute("alt", response.data.weather[0].description);
 }
 
 function displayCity(event) {

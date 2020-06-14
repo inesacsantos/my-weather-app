@@ -33,6 +33,10 @@ ul {
 li {
   list-style: none;
 }
-.temperature strong {
-  color: blue;
+
+.description {
+  font-size: 30px;
+}
+.description:first-letter {
+  text-transform: capitalize;
 }
