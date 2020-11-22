@@ -61,10 +61,17 @@ function displayCity(event) {
   searchCity(city);
 }
 
+function displayForecast(response) {
+  console.log(response.data);
+}
+
 function searchCity(city) {
   let apiKey = "1b92048b04f0294bf4e7e4bd33378013";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
   axios.get(apiUrl).then(displayWeatherCondition);
+
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
 }
 
 function searchLocation(position) {
