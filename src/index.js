@@ -84,7 +84,7 @@ for (let index = 0; index < 6; index++) {
 <div class="col-2">
   <h3>
     ${formatHours(forecast.dt_txt)}
-  </h3>
+  </h3 class="forecast-icon">
   <img
   src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png"
   />

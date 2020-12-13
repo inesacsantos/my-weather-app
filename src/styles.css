@@ -1,8 +1,8 @@
 body {
-  background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
-  font-family: "Noto Sans TC", sans-serif;
+  background-color: #3f51b5;
+  font-family: arial, sans-serif;
+  color: white;
 }
-
 .weather-app-wrapper {
   max-width: 600px;
   margin: 30px auto;
@@ -12,9 +12,11 @@ body {
   padding: 20px;
   border-radius: 10px;
 }
-
-img {
+.weather-icon img {
   width: 100px;
+}
+.weather-forecast img {
+  width: 50px;
 }
 i {
   width: 5px;
@@ -39,4 +41,16 @@ li {
 }
 .description:first-letter {
   text-transform: capitalize;
+}
+.weather-date {
+  font-size: 20px;
+}
+.weather-time {
+  font-size: 20px;
+}
+.units {
+  font-size: 17px;
+}
+.temperature {
+  font-size: 30px;
 }

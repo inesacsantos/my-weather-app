@@ -31,7 +31,7 @@
               <div class="col-6">
                 <input
                   type="text"
-                  placeholder="Enter a city"
+                  placeholder="Type a city..."
                   class="form-control"
                   autocomplete="off"
                   autofocus="on"
@@ -56,30 +56,28 @@
             </div>
           </form>
           <div class="row">
-            <div class="col-6">
-              <h3 id="weather-date"></h3>
-              <h3 id="weather-time"></h3>
-            </div>
-            <div class="col-6">
+            <div class="col-sm">
               <h2 class="city" id="citySearched">Porto</h2>
+              <h3 class="weather-date" id="weather-date">Sunday, December 13</h3>
+              <h3 class="weather-time" id="weather-time">22:13</h3>
             </div>
           </div>
           <div class="row">
-            <div class="col-6">
-              <span class="temperature" id="temperature"></span>
+            <div class="col-sm">
+              <span class="temperature" id="temperature"><strong>13</strong></span>
               <span class="units">
                 <a href="#" id="celsius-link">°C</a> |
                 <a href="#" id="fahrenheit-link">°F</a> |
               </span>
             </div>
-            <div class="col-6">
+            <div class="col-sm">
               <ul>
                 <li>Humidity: <span id="humidity">77</span>%</li>
                 <li>Wind: <span id="wind">8</span> km/h</li>
               </ul>
             </div>
           </div>
-          <div class="row">
+          <div class="row weather-description">
             <div class="col-6">
               <h1 class="description" id="description">
                 Storm
@@ -91,8 +89,6 @@
               </h1>
             </div>
           </div>
-          <br />
-          <br />
           <div class="row weather-forecast" id="forecast">
           </div>
         </div>
