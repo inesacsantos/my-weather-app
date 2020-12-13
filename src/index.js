@@ -1,7 +1,11 @@
 let now = new Date();
 
 let currentDate = document.querySelector("#weather-date");
+
 let date = now.getDate();
+let hours = ("0" + now.getHours()).slice(-2);
+let minutes = ("0" + now.getMinutes()).slice(-2);
+
 let days = [
   "Sunday",
   "Monday",
@@ -30,11 +34,18 @@ let months = [
 let month = months[now.getMonth()];
 currentDate.innerHTML = `${day}, ${month} ${date}`;
 
-let hours = ("0" + now.getHours()).slice(-2);
-let minutes = ("0" + now.getMinutes()).slice(-2);
+
+
 let currentTime = document.querySelector("#weather-time");
 currentTime.innerHTML = `${hours}:${minutes}`;
 let icon = document.querySelector("#icon");
+
+function formatHours(timestamp) {
+let date = new Date(timestamp);
+let hours = ("0" + date.getHours()).slice(-2);
+let minutes = ("0" + date.getMinutes()).slice(-2);
+return `${hours}:${minutes}`;
+}
 
 function displayWeatherCondition(response) {
   celsiusTemperature = response.data.main.temp;
@@ -62,7 +73,32 @@ function displayCity(event) {
 }
 
 function displayForecast(response) {
-  console.log(response.data);
+    
+let forecastElement = document.querySelector("#forecast");
+forecastElement.innerHTML = null;
+let forecast = null;
+
+for (let index = 0; index < 6; index++) {
+  forecast = response.data.list[index];
+  forecastElement.innerHTML += `
+<div class="col-2">
+  <h3>
+    ${formatHours(forecast.dt_txt)}
+  </h3>
+  <img
+  src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png"
+  />
+
+  <div class="weather-forecast-temperature">
+    <strong>
+      ${Math.round(forecast.main.temp_max)}º
+    </strong>
+    ${Math.round(forecast.main.temp_min)}º
+  </div>
+</div>
+`;
+}
+
 }
 
 function searchCity(city) {
